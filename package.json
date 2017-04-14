@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/yuzub/req-header-parser-ms#readme",
   "dependencies": {
-    "express": "^4.15.2",
-    "ua-parser-js": "^0.7.12"
+    "express": "^4.15.2"
   }
 }

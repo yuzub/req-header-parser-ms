@@ -1,14 +1,12 @@
 # timestamp-microservice
 Timestamp Microservice - nodejs app for freecodecamp
 
-User Story: I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016).
+Here's the specific user story you should implement for this project:
 
-User Story: If it does, it returns both the Unix timestamp and the natural language form of that date.
-
-User Story: If it does not contain a date or Unix timestamp, it returns null for those properties.
+User Story: I can get the IP address, language and operating system for my browser.
 
 Heroku project
-https://timestamp-yuzub.herokuapp.com/ | https://git.heroku.com/timestamp-yuzub.git
+https://...herokuapp.com/ | https://git.heroku.com/...git
 
 GitHub repository
-https://github.com/yuzub/timestamp-microservice.git
+https://github.com/yuzub/req-header-parser-ms.git

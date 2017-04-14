@@ -1,17 +1,16 @@
 var express = require('express');
 var app = express();
+var uaParser = require('ua-parser-js');
 
 app.set('port', (process.env.PORT || 5000));
 
-// app.set('views', __dirname + '/views');
-// app.set('view engine', 'pug');
-
 app.get('/', function(req, res) {
-  res.send('I can get the IP address, language and operating system for my browser Example usage: <a href="/api/whoami">https://...com/api/whoami</a>');
+  res.send('User Story for this project: I can get the IP address, language and operating system for my browser. For response, please, follow this link: <a href="/api/whoami">https://.../api/whoami</a>');
 });
 
 app.get('/headers', function(req, res) {
   res.set('Content-Type', 'text/plain');
+
   var s = '';
   for (var name in req.headers) {
     s += name + ': ' + req.headers[name] + '\n';
@@ -21,10 +20,16 @@ app.get('/headers', function(req, res) {
 });
 
 app.get('/api/whoami', function(req, res) {
+  var ua = uaParser(req.headers['user-agent']);
+
+  var ip = req.headers['x-forwarded-for'],
+    language = req.headers['accept-language'].split(',', 1),
+    software = ua.os;
+
   res.json({
-    "ipaddress": req.headers['x-forwarded-for'],
-    "language": req.headers['accept-language'],
-    "software": "Windows NT 6.1"
+    "ipaddress": ip,
+    "language": language[0],
+    "software": software
   });
 });
 
